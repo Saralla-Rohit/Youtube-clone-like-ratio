@@ -54,7 +54,7 @@ const Feed = ({ category }) => {
     const likes = likeCounts[videoId] || 0;
     const dislikes = dislikeCounts[videoId] || 0;
     const total = likes + dislikes;
-    return total === 0 ? 'No data' : Math.round((likes / total) * 100);
+    return total === 0 ? 'No data' : `${Math.round((likes / total) * 100)}% likes`;
   };
 
   return (
@@ -69,7 +69,7 @@ const Feed = ({ category }) => {
             <h2>{title}</h2>
             <h3>{channelTitle}</h3>
             <p>{value_converter(statistics.viewCount)} views &bull; {moment(publishedAt).fromNow()}</p>
-            <p>{calculateLikePercentage(id)}%</p>  
+            <p>{calculateLikePercentage(id)}</p>  
           </Link>
         );
       })}
